@@ -4,14 +4,18 @@ import Router from 'vue-router'
 import Home from '@/components/home' // 新任务
 import Confirm from '@/components/confirm' // 待确认
 import Repair from '@/components/repair' // 维修中
+
 import Login from '@/components/login/login' //登录
 import Register from '@/components/login/register' //注册
 import forgetPas from '@/components/login/forget_pas' //忘记密码
+
 import myIndex from '@/components/my/my_index' //我的
 import myTask from '@/components/my/my_task' //历史任务
 import myWallet from '@/components/my/my_wallet' //我的钱包
-import myInfo from '@/components/my/my_info' //我的钱包
+import myInfo from '@/components/my/my_info' //我的信息
 import myAuthentication from '@/components/my/my_authentication' //我的钱包
+
+import myService from '@/components/my/my_service' //我的钱包
 
 //维修类型
 import taskType from '@/components/content/task_type' //维修类型
@@ -72,6 +76,13 @@ const router = new Router({
 		path: '/authentication',
 		name: 'myAuthentication',
 		component: myAuthentication
+	}, {
+		path: '/service',
+		name: 'myService',
+		component: myService,
+		meta: {
+			auth: true
+		},
 	}, {
 		path: '/task',
 		name: 'taskType',

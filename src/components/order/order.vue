@@ -10,7 +10,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="order_list" v-if="data.length > 1">
+		<div class="order_list" v-if="data.length > 0">
 			<ul>
 				<li v-for="item in data">
 					<router-link :to="{ path:'/order/details',query:{ orderId:item.orderId} }">
@@ -77,7 +77,6 @@
 						withCredentials: true
 					},
 				}).then(res =>{
-					console.log(res);
 					vm.data = res.data.data;
 				}, res => {
 					// 错误回调

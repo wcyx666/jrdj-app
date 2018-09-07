@@ -50,14 +50,14 @@
 		</div>
 		<div class="my_list">
 			<ul>
-				<li>
+				<li class="coupon">
 					<router-link to="/wallet">我的优惠券</router-link>
 				</li>
-				<li>
+				<li class="info">
 					<router-link to="/info">我的资料</router-link>
 				</li>
-				<li>
-					<router-link to="/info">联系客服</router-link>
+				<li class="kefu">
+					<router-link to="/service">联系客服</router-link>
 				</li>
 			</ul>
 		</div>
@@ -187,9 +187,22 @@
 	.my_list ul li {
 		padding: .3rem 0;
 		border-bottom: .01rem solid #f8f8f8;
+		padding-left: .6rem;
 	}
 	.my_list ul li a {
 		font-size: 14px;
 		color: #333;
+	}
+	.my_list ul li.info {
+		background: url(../../assets/my/icon_info.png) no-repeat center left;
+		background-size: .5rem;
+	}
+	.my_list ul li.coupon {
+		background: url(../../assets/my/icon_coupon.png) no-repeat center left;
+		background-size: .5rem;
+	}
+	.my_list ul li.kefu {
+		background: url(../../assets/my/icon_kefu.png) no-repeat center left;
+		background-size: .5rem;
 	}
 </style>

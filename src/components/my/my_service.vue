@@ -1,5 +1,5 @@
  <template>
-  <div class="wallet">
+  <div class="service">
     <mt-header :title="title">
       <mt-button icon="back" slot="left" @click.native="backClick"></mt-button>
     </mt-header>
@@ -12,7 +12,7 @@ export default {
   name: 'wallet',
   data () {
     return {
-      title: '我的优惠券',
+      title: '联系客服',
       money:2585
     }
   },
@@ -38,7 +38,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .wallet {
+  .service {
     position: absolute;
     width: 100%;
     height: 100%;

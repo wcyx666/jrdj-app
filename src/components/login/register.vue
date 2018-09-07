@@ -81,8 +81,8 @@
 			},
 			login(){
 				let vm = this;
-				let res = vm.dataPhone.replace(/\s*/g,"");
-				if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(res))){
+				let phone = vm.dataPhone.replace(/\s*/g,"");
+				if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(phone))){
 					let instance = Toast({
 					  message: '手机号码不正确',
 					  position: 'bottom',
@@ -102,7 +102,7 @@
 					}, 1500);
 				}else{
 					let params = Qs.stringify({
-						phone:res,
+						phone:phone,
 						psw:vm.password,
 						dataYzm:vm.dataYzm
 					})
@@ -115,15 +115,28 @@
 	       			  },
 					}).then(res => {
 					    if(res.data.success == 1){
-					    	let instance = Toast({
-							  message: '注册成功',
-							  position: 'bottom',
-							  duration: 5000
-							});
-							setTimeout(() => {
-							  instance.close();
-							  vm.$router.push({ path: '/login' });
-							}, 1500);
+					    	let params = Qs.stringify({
+								phone:phone,
+							})
+							this.$http({
+							  method: 'post',
+							  url: '/lib/coupon/add_coupon.php',
+							  data: params,
+							  xhrFields: {
+			           			withCredentials: true
+			       			  },
+							}).then(res => {
+								let instance = Toast({
+								  message: '注册成功',
+								  position: 'bottom',
+								  duration: 5000
+								});
+								setTimeout(() => {
+								  instance.close();
+								  vm.$router.push({ path: '/login' });
+								}, 1500);
+							})
+					    	
 					    }else if(res.data.success == 2){
 					    	let instance = Toast({
 							  message: '系统错误，请稍后注册',
